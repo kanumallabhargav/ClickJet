@@ -16,8 +16,12 @@ public class Base
 	Properties prop = new Properties();
 	public WebDriver driverInitialize() throws IOException
 	{
-		//Use FileInputStream only on mac. For windows, parameterize through Jenkins build.
-		//Note: DO NOT READ THE FILE FROM INPUTSTREAM ON WINDOWS
+		
+		/*Use FileInputStream only on MacOs. For windows, parameterize through Jenkins build.
+		 *
+		 * ~~~~~~~~~~~~~~~~~~IMPORTANT: DO NOT READ THE FILE FROM INPUTSTREAM ON WINDOWS~~~~~~~~~~~~~~~~~~
+		 */
+		
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/resources/config/browserConfig.properties");
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
