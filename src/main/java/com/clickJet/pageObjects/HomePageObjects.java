@@ -75,6 +75,9 @@ public class HomePageObjects
 	private By changeFlightRefund = By.xpath("//*[@id=\"traveller-home\"]/div[7]/div/div[2]/a[1]/span[1]");
 	private By offerLink = By.xpath("//*[@id=\"header\"]/div[1]/div[2]/a");
 	
+	//OfferLinkVerificationElement
+	private By offerVerifyElement = By.xpath("//*[@id=\"carousel-example-generic\"]/div/div/div/div/div/a");
+	
 	//constructor to pass WebDriver object
 	public HomePageObjects(WebDriver driver) 
 	{
@@ -144,12 +147,12 @@ public class HomePageObjects
 	}
 	
 	//Others
-	public void clickOnCurrenct()
+	public void clickOnCurrency()
 	{
 		driver.findElement(currency);
 	}
 	
-	//Checkboxes
+	//CheckBoxes
 	public void clickOnFamilyAndFriendsCheckbox()
 	{
 		driver.findElement(familyAndFriendsCheckbox).click();
@@ -283,5 +286,12 @@ public class HomePageObjects
 	public void clickOnOfferLink()
 	{
 		driver.findElement(offerLink).click();
+	}
+	
+	//VerificationForOfferLink
+	public boolean verification()
+	{
+		boolean verify =  driver.findElement(offerVerifyElement).isDisplayed();
+		return verify;
 	}
 }
